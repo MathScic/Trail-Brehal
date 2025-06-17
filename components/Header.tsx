@@ -8,7 +8,7 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="bg-white shadow sticky top-0 z-50">
+    <header className="absolute top-0 left-0 w-full z-50 text-white">
       <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
         {/* Logo */}
         <Link href="/">
@@ -22,33 +22,30 @@ export default function Header() {
 
         {/* Menu Nav */}
         <nav className="space-x-4 hidden md:block">
-          <Link
-            href="/"
-            className="text-blue-800 font-semibold hover:underline"
-          >
+          <Link href="/" className="text-white font-semibold hover:underline">
             Accueil
           </Link>
           <Link
             href="/parcours"
-            className="text-blue-800 font-semibold hover:underline"
+            className="text-white font-semibold hover:underline"
           >
             Parcours
           </Link>
           <Link
             href="/infos-pratiques"
-            className="text-blue-800 font-semibold hover:underline"
+            className="text-white font-semibold hover:underline"
           >
             Infos-Pratiques
           </Link>
           <Link
             href="/inscriptions"
-            className="text-blue-800 font-semibold hover:underline"
+            className="text-white font-semibold hover:underline"
           >
             Inscriptions
           </Link>
           <Link
             href="/galerie"
-            className="text-blue-800 font-semibold hover:underline"
+            className="text-white font-semibold hover:underline"
           >
             Galerie
           </Link>
