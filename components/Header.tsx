@@ -33,7 +33,10 @@ export default function Header() {
 
           {/* Liens droite */}
           <div className="flex gap-40">
-            <Link href="/inscriptions" className={navLinkStyle}>
+            <Link
+              href="https://www.normandiecourseapied.com/fiches-course-foulees-cross-trail-normandie-2025/manche/run-des-vikings-brehal-2025.html"
+              className={navLinkStyle}
+            >
               Inscriptions
             </Link>
             <Link href="/galerie" className={navLinkStyle}>
