@@ -21,7 +21,7 @@ export default function Courses() {
     return [...first, ...rest];
   }, []);
 
-  // 2) Hook: slides (groupes de 3) + clone, et animation
+  // 2) Hook: slides (groupes de 3) + clones + animation smooth
   const {
     slides,
     slidesWithClone,
@@ -39,7 +39,7 @@ export default function Courses() {
     <FadeInWhenVisible>
       <section className="relative">
         <Backdrop
-          src="/images/Img bréhal.jpeg"
+          src="/images/courses-bg.jpeg"
           alt="Plage de Bréhal / Granville"
         />
 
@@ -75,28 +75,41 @@ export default function Courses() {
             <div className="overflow-hidden rounded-2xl">
               <div
                 ref={trackRef}
-                className="flex w-full will-change-transform"
+                className="flex w-full will-change-transform transform-gpu"
                 onTransitionEnd={onTransitionEnd}
               >
                 {slidesWithClone.map((group, slideIdx) => {
-                  const isSingle = group.length === 1;
+                  // Pad à 3 colonnes pour garder la même largeur/hauteur et centrer
+                  const filled = (() => {
+                    if (group.length === 1) return [null, group[0], null];
+                    if (group.length === 2) return [group[0], group[1], null];
+                    return group.slice(0, 3);
+                  })();
+
                   const isFirstSlide = slideIdx === 0;
+
                   return (
                     <div
                       key={slideIdx}
-                      className={`shrink-0 w-full grid gap-6 ${
-                        isSingle
-                          ? "grid-cols-1 place-items-center"
-                          : "md:grid-cols-3"
-                      }`}
+                      className="shrink-0 w-full grid grid-cols-1 md:grid-cols-3 gap-6"
                     >
-                      {group.map((c) => (
-                        <CourseCard
-                          key={c.slug}
-                          course={c}
-                          priority={isFirstSlide}
-                        />
-                      ))}
+                      {filled.map((c, i) =>
+                        c ? (
+                          <div
+                            key={c.slug}
+                            className="w-full max-w-[420px] mx-auto"
+                          >
+                            <CourseCard course={c} priority={isFirstSlide} />
+                          </div>
+                        ) : (
+                          // Placeholder invisible gardant l'espace (même gabarit)
+                          <div
+                            key={`ph-${i}`}
+                            aria-hidden
+                            className="w-full max-w-[420px] mx-auto h-[400px] rounded-2xl opacity-0 pointer-events-none"
+                          />
+                        )
+                      )}
                     </div>
                   );
                 })}

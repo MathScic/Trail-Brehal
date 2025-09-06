@@ -22,8 +22,7 @@ export default function Header() {
   const courses = coursesData as Course[];
   const pathname = usePathname();
 
-  // On considère que la bannière est uniquement sur la home
-  const hasBanner = pathname === "/";
+  const isHome = pathname === "/";
 
   const navLinkStyle =
     "relative font-semibold text-white transition-all duration-300 hover:text-blue-300 before:absolute before:bottom-0 before:left-0 before:h-0.5 before:w-0 before:bg-white before:transition-all before:duration-300 hover:before:w-full";
@@ -31,17 +30,18 @@ export default function Header() {
   return (
     <motion.header
       className={`top-0 left-0 w-full z-50 ${
-        hasBanner
-          ? "absolute text-white"
-          : "relative bg-blue-900 text-white shadow-sm"
+        isHome
+          ? "absolute bg-transparent text-white"
+          : "relative text-white shadow-sm"
       }`}
+      style={!isHome ? { background: "oklch(21% 0.034 264.665)" } : {}}
       initial={{ y: -50, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
     >
       {/* Barre principale */}
-      <div className="max-w-6xl mx-auto px-4 py-6 md:py-5 flex items-center justify-between md:justify-center">
-        {/* NAVIGATION CENTRALE ÉQUILIBRÉE */}
+      <div className="max-w-6xl mx-auto px-4 py-8 md:py-7 flex items-center justify-between md:justify-center">
+        {/* NAVIGATION CENTRALE */}
         <div className="hidden md:flex w-[80%] justify-between items-center mx-auto">
           {/* Liens gauche */}
           <div className="flex gap-40">
@@ -61,32 +61,37 @@ export default function Header() {
                 className={`${navLinkStyle} inline-flex items-center gap-2`}
                 aria-haspopup="true"
                 aria-expanded={parcoursOpen}
+                aria-controls="menu-parcours"
               >
                 Parcours
-                <svg
+                <motion.svg
                   width="12"
                   height="12"
                   viewBox="0 0 24 24"
                   className="pointer-events-none"
                   aria-hidden="true"
+                  animate={{ rotate: parcoursOpen ? 180 : 0 }}
+                  transition={{ duration: 0.2 }}
                 >
                   <path fill="currentColor" d="M7 10l5 5 5-5z" />
-                </svg>
+                </motion.svg>
               </button>
 
-              {/* Dropdown panel */}
+              {/* Dropdown panel animé */}
               <AnimatePresence>
                 {parcoursOpen && (
                   <motion.div
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 8 }}
-                    transition={{ duration: 0.15 }}
-                    className="absolute left-0 mt-2 w-72 rounded-xl bg-white text-blue-900 shadow-lg border border-gray-200 p-2 z-[60]"
+                    id="menu-parcours"
                     role="menu"
+                    initial={{ opacity: 0, y: 8, height: 0 }}
+                    animate={{ opacity: 1, y: 0, height: "auto" }}
+                    exit={{ opacity: 0, y: 8, height: 0 }}
+                    transition={{ duration: 0.2, ease: "easeOut" }}
+                    className="absolute left-0 mt-2 w-72 rounded-xl bg-white text-blue-900 shadow-lg border border-gray-200 p-2 z-[60] overflow-hidden origin-top"
                   >
+                    {/* 👉 Lien vers /courses */}
                     <Link
-                      href="/parcours"
+                      href="/courses"
                       className="block px-3 py-2 rounded-md hover:bg-gray-100 font-medium"
                       role="menuitem"
                     >
@@ -94,16 +99,19 @@ export default function Header() {
                     </Link>
                     <div className="my-2 h-px bg-gray-200" />
 
+                    {/* 👉 Chaque course redirige vers son site d'inscription */}
                     <ul className="max-h-[60vh] overflow-auto">
                       {courses.map((c) => (
                         <li key={c.slug}>
-                          <Link
-                            href={`/parcours/${c.slug}`}
+                          <a
+                            href={c.signupUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="block px-3 py-2 rounded-md hover:bg-gray-100"
                             role="menuitem"
                           >
                             {c.km} km – {c.name}
-                          </Link>
+                          </a>
                         </li>
                       ))}
                     </ul>
@@ -125,7 +133,7 @@ export default function Header() {
             >
               Inscriptions
             </Link>
-            <Link href="/galerie" className={navLinkStyle}>
+            <Link href="/gallerie" className={navLinkStyle}>
               Galerie
             </Link>
           </div>
@@ -134,23 +142,23 @@ export default function Header() {
         {/* LOGO CENTRÉ */}
         <Link href="/" className="absolute left-1/2 -translate-x-1/2">
           <img
-            src="/images/logo.png"
+            src="/images/logo-bréhal.png"
             alt="Logo La Bréhalaise"
-            width={80}
-            height={80}
-            className="object-contain mt-2 md:mt-2 pt-2"
+            width={90}
+            height={90}
+            className="object-contain"
           />
         </Link>
 
         {/* BURGER MENU (mobile) */}
         <button
           onClick={() => setMenuOpen(true)}
-          className="md:hidden absolute top-5 right-4 z-50 focus:outline-none"
+          className="md:hidden absolute top-6 right-4 z-50 focus:outline-none"
         >
           <div className="space-y-1">
-            <div className="w-6 h-0.5 bg-blue-800"></div>
-            <div className="w-6 h-0.5 bg-blue-800"></div>
-            <div className="w-6 h-0.5 bg-blue-800"></div>
+            <div className="w-6 h-0.5 bg-white"></div>
+            <div className="w-6 h-0.5 bg-white"></div>
+            <div className="w-6 h-0.5 bg-white"></div>
           </div>
         </button>
       </div>
@@ -173,25 +181,12 @@ export default function Header() {
             </button>
 
             <Link
-              href="/parcours"
+              href="/courses"
               onClick={() => setMenuOpen(false)}
               className="block font-semibold"
             >
               Parcours
             </Link>
-            <div className="pl-3 space-y-1">
-              {courses.map((c) => (
-                <Link
-                  key={c.slug}
-                  href={`/parcours/${c.slug}`}
-                  onClick={() => setMenuOpen(false)}
-                  className="block text-sm text-blue-100 hover:text-white"
-                >
-                  {c.km} km – {c.name}
-                </Link>
-              ))}
-            </div>
-
             <Link
               href="/infos-pratiques"
               onClick={() => setMenuOpen(false)}
@@ -207,7 +202,7 @@ export default function Header() {
               Inscriptions
             </Link>
             <Link
-              href="/galerie"
+              href="/gallerie"
               onClick={() => setMenuOpen(false)}
               className="block font-semibold"
             >

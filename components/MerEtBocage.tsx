@@ -12,7 +12,8 @@ export default function MerEtBocage() {
             Un trail entre mer et bocage
           </h2>
           <p className="text-gray-700 text-lg max-w-xl mb-6 leading-relaxed">
-            Bienvenue sur le site de la Bréhalaise !<br />
+            Bienvenue sur le site du trail des Vikings organisé par le club de
+            la Bréhalaise !<br />
             Participez à la prochaine édition de notre trail à Bréhal et
             découvrez des parcours variés entre mer et bocage.
           </p>
@@ -27,7 +28,7 @@ export default function MerEtBocage() {
         {/* Image + bulles */}
         <div className="relative flex justify-center">
           <Image
-            src="/images/trail_mer_et_bocage.png"
+            src="/images/banner-2.jpg"
             alt="Coureur en action"
             width={440}
             height={300}

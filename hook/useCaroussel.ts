@@ -1,72 +1,112 @@
-// hooks/useCarousel.ts
 "use client";
-import { useEffect, useMemo, useRef, useState } from "react";
 
-export default function useCarousel<T>(
-  items: T[],
-  groupSize = 3,
-  intervalMs = 4500
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import type { Course } from "@/types/course";
+
+// Hook custom : carrousel infini fluide
+export default function useCarousel(
+  items: Course[],
+  perSlide = 3,
+  interval = 4500
 ) {
+  // 1) Grouper par X
   const slides = useMemo(() => {
-    const res: T[][] = [];
-    for (let i = 0; i < items.length; i += groupSize)
-      res.push(items.slice(i, i + groupSize));
-    return res;
-  }, [items, groupSize]);
+    const arr: Course[][] = [];
+    for (let i = 0; i < items.length; i += perSlide) {
+      arr.push(items.slice(i, i + perSlide));
+    }
+    return arr;
+  }, [items, perSlide]);
 
-  const slidesWithClone = useMemo(
-    () => (slides.length ? [...slides, slides[0]] : ([[]] as T[][])),
-    [slides]
-  );
-
-  const [index, setIndex] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(true);
-  const trackRef = useRef<HTMLDivElement>(null);
-  const timer = useRef<number | null>(null);
-  const started = useRef(false);
   const logicalLength = slides.length;
 
-  useEffect(() => {
-    if (started.current) return;
-    started.current = true;
-    const raf = requestAnimationFrame(() => {
-      timer.current = window.setInterval(
-        () => setIndex((p) => p + 1),
-        intervalMs
-      );
-    });
-    return () => {
-      cancelAnimationFrame(raf);
-      if (timer.current) window.clearInterval(timer.current);
-    };
-  }, [intervalMs]);
+  // 2) Clones tête + queue
+  const slidesWithClone = useMemo(() => {
+    if (logicalLength === 0) return [];
+    const head = slides[0];
+    const tail = slides[logicalLength - 1];
+    return [tail, ...slides, head];
+  }, [slides, logicalLength]);
 
-  useEffect(() => {
-    const track = trackRef.current;
-    if (!track) return;
-    track.style.transition = isAnimating
-      ? "transform 900ms cubic-bezier(0.16,1,0.3,1)"
-      : "none";
-    track.style.transform = `translateX(-${index * 100}%)`;
-  }, [index, isAnimating]);
+  // 3) Index réel
+  const [idx, setIdx] = useState(1);
+  const trackRef = useRef<HTMLDivElement | null>(null);
+  const transitioningRef = useRef(false);
 
-  const onTransitionEnd = () => {
-    if (index === slidesWithClone.length - 1) {
-      setIsAnimating(false);
-      requestAnimationFrame(() => {
-        setIndex(0);
-        requestAnimationFrame(() => setIsAnimating(true));
-      });
+  const enableTransition = useCallback(() => {
+    const el = trackRef.current;
+    if (el) el.style.transition = "transform 550ms ease-in-out";
+  }, []);
+  const disableTransition = useCallback(() => {
+    const el = trackRef.current;
+    if (el) el.style.transition = "none";
+  }, []);
+
+  const goTo = useCallback(
+    (next: number) => {
+      const el = trackRef.current;
+      if (!el) return;
+      transitioningRef.current = true;
+      enableTransition();
+      setIdx(next);
+      el.style.transform = `translateX(${-100 * next}%)`;
+    },
+    [enableTransition]
+  );
+
+  const next = useCallback(() => goTo(idx + 1), [goTo, idx]);
+
+  // Auto-play
+  useEffect(() => {
+    if (logicalLength <= 1) return;
+    const id = setInterval(next, interval);
+    return () => clearInterval(id);
+  }, [next, interval, logicalLength]);
+
+  // Wrap invisible
+  const onTransitionEnd = useCallback(() => {
+    const el = trackRef.current;
+    if (!el || !transitioningRef.current) return;
+    transitioningRef.current = false;
+
+    if (idx === logicalLength + 1) {
+      disableTransition();
+      setIdx(1);
+      el.style.transform = `translateX(-100%)`;
+      // @ts-ignore
+      el.offsetHeight;
+      enableTransition();
     }
-  };
+
+    if (idx === 0) {
+      disableTransition();
+      setIdx(logicalLength);
+      el.style.transform = `translateX(${-100 * logicalLength}%)`;
+      // @ts-ignore
+      el.offsetHeight;
+      enableTransition();
+    }
+  }, [idx, logicalLength, disableTransition, enableTransition]);
+
+  // Init position
+  useEffect(() => {
+    const el = trackRef.current;
+    if (!el) return;
+    disableTransition();
+    el.style.transform = `translateX(-100%)`;
+    // @ts-ignore
+    el.offsetHeight;
+    enableTransition();
+  }, [disableTransition, enableTransition]);
 
   return {
     slides,
     slidesWithClone,
     logicalLength,
-    index,
-    setIndex,
+    index: idx - 1,
+    setIndex: (logicalIndex: number) => goTo(logicalIndex + 1),
     trackRef,
     onTransitionEnd,
+    next,
   };
 }

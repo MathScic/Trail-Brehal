@@ -90,7 +90,7 @@ export default function InfosPratiquesPage() {
                   Adresse de départ :
                 </p>
                 <p>
-                  15 Avenue de Lydney
+                  Place Monaco,
                   <br />
                   50290, Bréhal
                 </p>
@@ -101,16 +101,16 @@ export default function InfosPratiquesPage() {
                 </p>
                 <ul className="space-y-1">
                   <li>
-                    10,2 km —{" "}
-                    <span className="font-medium text-brand-dark">14h30</span>
+                    5,1 km —{" "}
+                    <span className="font-medium text-brand-dark">10h</span>
                   </li>
                   <li>
-                    5,2 km —{" "}
-                    <span className="font-medium text-brand-dark">13h20</span>
+                    10,1 km —{" "}
+                    <span className="font-medium text-brand-dark">11h15</span>
                   </li>
                   <li>
-                    Marche 5,2 km —{" "}
-                    <span className="font-medium text-brand-dark">11h30</span>
+                    Marche 0,00 km —{" "}
+                    <span className="font-medium text-brand-dark">10h30</span>
                   </li>
                 </ul>
                 <p className="font-semibold text-brand-dark mt-3">
@@ -118,24 +118,24 @@ export default function InfosPratiquesPage() {
                 </p>
                 <ul className="space-y-1">
                   <li>
-                    0,58 km —{" "}
-                    <span className="font-medium text-brand-dark">10h00</span>{" "}
-                    (nés 2016–2017)
+                    0,0 km —{" "}
+                    <span className="font-medium text-brand-dark">14h00</span>{" "}
+                    (nés 2017-2018)
                   </li>
                   <li>
                     1,1 km —{" "}
-                    <span className="font-medium text-brand-dark">10h30</span>{" "}
-                    (nés 2014–2015)
+                    <span className="font-medium text-brand-dark">14h30</span>{" "}
+                    (nés 2015-2016)
                   </li>
                   <li>
                     2,2 km —{" "}
-                    <span className="font-medium text-brand-dark">11h15</span>{" "}
-                    (nés 2012–2013)
+                    <span className="font-medium text-brand-dark">15h15</span>{" "}
+                    (nés 2013–2014)
                   </li>
                   <li>
                     2,8 km —{" "}
-                    <span className="font-medium text-brand-dark">12h15</span>{" "}
-                    (nés 2010–2011)
+                    <span className="font-medium text-brand-dark">16h15</span>{" "}
+                    (nés 2011–2012)
                   </li>
                 </ul>
               </div>

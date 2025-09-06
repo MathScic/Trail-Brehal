@@ -1,12 +1,13 @@
+// components/Footer.tsx
 import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-white py-10 px-4 mt-20">
+    <footer className="mt-auto bg-gray-900 text-white py-10 px-4">
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 items-center text-center md:text-left">
         {/* Logo */}
         <img
-          src="/images/logo.png"
+          src="/images/logo-bréhal.png"
           alt="Logo La Bréhalaise"
           width={100}
           height={100}
@@ -15,7 +16,7 @@ export default function Footer() {
         {/* Contact */}
         <div>
           <h3 className="text-lg font-semibold mb-2">Contact</h3>
-          <a href="">trail.brehal@email.com</a>
+          <a href="mailto:trail.brehal@email.com">trail.brehal@email.com</a>
           <p>06 12 34 56 78</p>
         </div>
 
@@ -34,7 +35,7 @@ export default function Footer() {
       </div>
 
       <div className="text-center mt-8 text-sm text-gray-400">
-        &copy; {new Date().getFullYear()} La Bréalèse. Tous droits réservés.
+        &copy; {new Date().getFullYear()} La Bréhalaise. Tous droits réservés.
       </div>
     </footer>
   );
