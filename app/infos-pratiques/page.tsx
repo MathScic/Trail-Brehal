@@ -155,11 +155,11 @@ export default function InfosPratiquesPage() {
               </p>
               <p>
                 <span className="font-semibold text-brand-dark">Lieu :</span>{" "}
-                Place de Monaco, Bréhal (villagfe départ)
+                Place de Monaco, Bréhal (village de départ)
               </p>
               <p>
-                Pièce d’identité obligatoire. Pour les mineurs : autorisation
-                parentale.
+                Pièce d&rsquo;identité obligatoire. Pour les mineurs :
+                autorisation parentale.
               </p>
             </div>
           </AccordionSection>
@@ -167,15 +167,15 @@ export default function InfosPratiquesPage() {
           {/* Parking */}
           <AccordionSection id="parking" title="Parking">
             <p>
-              Parking gratuit à l'hipodrome de Bréhal,{" "}
-              <span className="whitespace-nowrap">1??</span> .
+              Parking gratuit à l&rsquo;hippodrome de Bréhal (suivre la
+              signalisation).
             </p>
           </AccordionSection>
 
           {/* Restauration */}
           <AccordionSection id="restauration" title="Restauration">
             <p>
-              Des food‑trucks seront présents sur le village pour proposer
+              Des food-trucks seront présents sur le village pour proposer
               différents styles de nourriture et boissons. Privilégiez les
               paiements par carte si possible.
             </p>
@@ -186,8 +186,9 @@ export default function InfosPratiquesPage() {
             <div className="grid md:grid-cols-2 gap-6">
               <div className="space-y-2">
                 <p>
-                  Pré‑inscription en ligne recommandée sur le lien
-                  "Inscriptions"(clôture : voir plateforme).
+                  Pré-inscription en ligne recommandée sur le lien
+                  &nbsp;&laquo;&nbsp;Inscriptions&nbsp;&raquo;&nbsp;(clôture :
+                  voir plateforme).
                 </p>
                 <ul className="list-disc pl-5">
                   <li>10,2 km — 10€</li>
@@ -198,6 +199,7 @@ export default function InfosPratiquesPage() {
                 <Link
                   href="https://www.normandiecourseapied.com/fiches-course-foulees-cross-trail-normandie-2025/manche/run-des-vikings-brehal-2025.html"
                   target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex rounded-lg bg-brand-dark px-4 py-2 text-white font-semibold hover:bg-brand-medium"
                 >
                   S’inscrire en ligne
@@ -209,8 +211,8 @@ export default function InfosPratiquesPage() {
                 </p>
                 <p className="text-sm mt-2">
                   Course chronométrée : licence FFA valide ou certificat médical
-                  (&lt; 1 an) mentionnant l’absence de contre‑indication à la
-                  course à pied en compétition.
+                  (&lt; 1 an) mentionnant l&rsquo;absence de contre-indication à
+                  la course à pied en compétition.
                 </p>
               </div>
             </div>
@@ -245,7 +247,7 @@ export default function InfosPratiquesPage() {
           <AccordionSection id="eco" title="Engagement écoresponsable">
             <p>
               Tri des déchets sur zone, gobelets réutilisables, aucun jet de
-              déchets sur le parcours (pénalités). Co‑voiturage encouragé.
+              déchets sur le parcours (pénalités). Co-voiturage encouragé.
             </p>
           </AccordionSection>
 
@@ -254,7 +256,7 @@ export default function InfosPratiquesPage() {
             <div className="divide-y rounded-xl border bg-white">
               <details className="p-4">
                 <summary className="cursor-pointer font-semibold text-brand-dark">
-                  Puis‑je changer de course ?
+                  Puis-je changer de course ?
                 </summary>
                 <p className="mt-2">
                   Oui selon disponibilités, jusqu’à la clôture des inscriptions
@@ -274,7 +276,7 @@ export default function InfosPratiquesPage() {
                   Matériel recommandé
                 </summary>
                 <p className="mt-2">
-                  Chaussures adaptées, hydratation, coupe‑vent selon météo.
+                  Chaussures adaptées, hydratation, coupe-vent selon météo.
                 </p>
               </details>
             </div>
