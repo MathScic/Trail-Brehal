@@ -1,7 +1,12 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
+import {
+  motion,
+  AnimatePresence,
+  useReducedMotion,
+  type Transition, // ← ajout du type
+} from "framer-motion";
 import Image from "next/image";
 
 type Photo = { src: string; alt: string };
@@ -27,9 +32,9 @@ export default function EditionGallery({
 
   // Réduit les animations si l’utilisateur le souhaite
   const prefersReducedMotion = useReducedMotion();
-  const anim = prefersReducedMotion
+  const anim: Transition = prefersReducedMotion
     ? { duration: 0 }
-    : { duration: 0.25, ease: "easeOut" };
+    : { duration: 0.25, ease: [0.16, 1, 0.3, 1] }; // ← bezier "easeOut"-like
 
   // Empêcher le scroll du body quand la lightbox est ouverte
   useEffect(() => {
@@ -40,7 +45,7 @@ export default function EditionGallery({
     };
   }, [lbOpen]);
 
-  // Focus management: focus sur "Fermer" à l’ouverture + retour au déclencheur à la fermeture
+  // Focus management
   useEffect(() => {
     if (lbOpen) {
       closeBtnRef.current?.focus();
@@ -50,7 +55,7 @@ export default function EditionGallery({
     }
   }, [lbOpen]);
 
-  // Clavier: ESC pour fermer, flèches pour naviguer
+  // Clavier
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (!lbOpen) return;
@@ -157,14 +162,14 @@ export default function EditionGallery({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-[100] bg-black/80 flex items-center justify-center p-4"
-            onClick={() => setLbOpen(false)} // clic backdrop = fermer
+            onClick={() => setLbOpen(false)}
             role="dialog"
             aria-modal="true"
             aria-labelledby={`lb-title-${id}`}
           >
             <div
               className="relative w-full max-w-5xl max-h-[85vh]"
-              onClick={(e) => e.stopPropagation()} // ne pas fermer sur l'image
+              onClick={(e) => e.stopPropagation()}
             >
               {/* Bouton fermer */}
               <button
@@ -215,7 +220,7 @@ export default function EditionGallery({
                 />
               </div>
 
-              {/* Légende (utile SEO/a11y) */}
+              {/* Légende */}
               {photos[lbIndex].alt && (
                 <p className="mt-3 text-center text-white/90 text-sm">
                   {photos[lbIndex].alt}{" "}
