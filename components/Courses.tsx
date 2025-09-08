@@ -23,7 +23,6 @@ export default function Courses() {
 
   // 2) Hook: slides (groupes de 3) + clones + animation smooth
   const {
-    slides,
     slidesWithClone,
     logicalLength,
     index,
