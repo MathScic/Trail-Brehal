@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 items-center text-center md:text-left">
         {/* Logo */}
         <img
-          src="/images/logo-bréhal.png"
+          src="/images/logo-brehal.png"
           alt="Logo La Bréhalaise"
           width={100}
           height={100}

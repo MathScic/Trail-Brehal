@@ -1,7 +1,17 @@
 // app/courses/page.tsx
-import Header from "@/components/Header";
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import coursesData from "@/data/courses.json";
+
+const SITE = "https://trail-des-vikings.fr";
+
+export const metadata: Metadata = {
+  title: "Courses – Trail des Vikings (Bréhal)",
+  description:
+    "Toutes les courses du Trail des Vikings à Bréhal : horaires, distances, parcours et inscriptions.",
+  alternates: { canonical: `${SITE}/courses` }, // ← absolu
+};
 
 type Course = {
   slug: string;
@@ -12,81 +22,52 @@ type Course = {
   signupUrl: string;
 };
 
-const allCourses: Course[] = [
-  {
-    slug: "5km",
-    km: 5.1,
-    name: "Conquête des dunes",
-    desc: "Ouverte à tous. Départ 10h, Place Monaco 50290 Bréhal. Arrivée au même endroit que le départ.. Inscription ??€ / pers.",
-    img: "/images/courses-5km.jpeg",
-    signupUrl:
-      "https://www.normandiecourseapied.com/fiches-course-foulees-cross-trail-normandie-2025/manche/run-des-vikings-brehal-2025.html",
-  },
-
-  {
-    slug: "10km",
-    km: 10.1,
-    name: "La traversée des Vikings",
-    desc: "Ouverte à tous. Départ 11h15, Place Monaco 50290 Bréhal. Arrivée au même endroit que le départ.. Inscription ??€ / pers.",
-    img: "/images/courses-10km.jpg",
-    signupUrl:
-      "https://www.normandiecourseapied.com/fiches-course-foulees-cross-trail-normandie-2025/manche/run-des-vikings-brehal-2025.html",
-  },
-
-  {
-    slug: "Marche",
-    km: 0,
-    name: "La rando des Vikings",
-    desc: "Ouverte à tous. Départ 10h30, Place Monaco 50290 Bréhal. Arrivée au même endroit que le départ.. Inscription ??€ / pers.",
-    img: "/images/courses-marche.jpg",
-    signupUrl:
-      "https://www.normandiecourseapied.com/fiches-course-foulees-cross-trail-normandie-2025/manche/run-des-vikings-brehal-2025.html",
-  },
-  {
-    slug: "Course enfants - 2017/2018",
-    km: 0,
-    name: "Le mini-drakar",
-    desc: "Départ 14h, Place Monaco 50290 Bréhal. Arrivée au même endroit que le départ.. Inscription ??€ / pers.",
-    img: "/images/courses-enfants-1.jpeg",
-    signupUrl:
-      "https://www.normandiecourseapied.com/fiches-course-foulees-cross-trail-normandie-2025/manche/run-des-vikings-brehal-2025.html",
-  },
-
-  {
-    slug: "Course enfants - 2015/2016",
-    km: 1.1,
-    name: "Les petits Vikings",
-    desc: "Départ 14h30, Place Monaco 50290 Bréhal. Arrivée au même endroit que le départ.. Inscription ??€ / pers.",
-    img: "/images/courses-enfants-2.jpeg",
-    signupUrl:
-      "https://www.normandiecourseapied.com/fiches-course-foulees-cross-trail-normandie-2025/manche/run-des-vikings-brehal-2025.html",
-  },
-
-  {
-    slug: "Course enfants - 2013/2014",
-    km: 2.2,
-    name: "Les apprentis guerriers",
-    desc: "Départ 15h15, Place Monaco 50290 Bréhal. Arrivée au même endroit que le départ.. Inscription ??€ / pers.",
-    img: "/images/courses-enfants-3.jpeg",
-    signupUrl:
-      "https://www.normandiecourseapied.com/fiches-course-foulees-cross-trail-normandie-2025/manche/run-des-vikings-brehal-2025.html",
-  },
-
-  {
-    slug: "Course enfants - 2011/2012",
-    km: 2.8,
-    name: "Les apprentis guerriers",
-    desc: "Départ 16h15, Place Monaco 50290 Bréhal. Arrivée au même endroit que le départ.. Inscription ??€ / pers.",
-    img: "/images/courses-enfants-4.jpeg",
-    signupUrl:
-      "https://www.normandiecourseapied.com/fiches-course-foulees-cross-trail-normandie-2025/manche/run-des-vikings-brehal-2025.html",
-  },
-];
+const allCourses = (coursesData as Course[]).filter(Boolean); // évite les entrées vides
 
 export default function AllCoursesPage() {
+  // JSON-LD minimal : CollectionPage + ItemList (liens d’inscription)
+  const itemListElements = allCourses.map((c, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    name: `${c.km ? `${c.km} km — ` : ""}${c.name}`,
+    url: c.signupUrl,
+  }));
+
+  const collectionLd = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": `${SITE}/courses#collection`,
+    url: `${SITE}/courses`,
+    name: "Courses – Trail des Vikings",
+    mainEntity: {
+      "@type": "ItemList",
+      itemListElement: itemListElements,
+    },
+  };
+
+  const breadcrumbsLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Accueil", item: SITE },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Courses",
+        item: `${SITE}/courses`,
+      },
+    ],
+  };
+
   return (
-    <main className="max-w-6xl mx-auto px-4 py-16">
-      <h1 className="text-3xl md:text-4xl font-bold text-blue-800 mb-10 text-center">
+    <main
+      className="max-w-6xl mx-auto px-4 py-16 flex-1"
+      aria-labelledby="courses-title"
+    >
+      <h1
+        id="courses-title"
+        className="text-3xl md:text-4xl font-bold text-blue-800 mb-10 text-center"
+      >
         Toutes les courses
       </h1>
 
@@ -99,21 +80,26 @@ export default function AllCoursesPage() {
             <div className="relative w-full aspect-[16/9] rounded-t-2xl overflow-hidden">
               <Image
                 src={c.img}
-                alt={`${c.km} km – ${c.name}`}
+                alt={c.img ? `${c.km} km – ${c.name}` : c.name}
                 fill
                 className="object-cover"
-                sizes="(min-width: 768px) 33vw, 100vw"
+                sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                priority={false} // lazy par défaut
               />
             </div>
+
             <div className="p-6 flex flex-col items-center">
               <h2 className="text-xl md:text-2xl font-extrabold text-blue-800 tracking-tight">
                 {c.km} km – {c.name}
               </h2>
+
               <p className="text-gray-600 mt-2">{c.desc}</p>
+
               <Link
                 href={c.signupUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label={`Inscription ${c.km} km – ${c.name}`}
                 className="mt-6 inline-flex items-center justify-center rounded-lg bg-blue-700 px-5 py-2.5 font-semibold text-white shadow-sm hover:bg-blue-800 transition"
               >
                 S’inscrire
@@ -122,6 +108,16 @@ export default function AllCoursesPage() {
           </article>
         ))}
       </div>
+
+      {/* JSON-LD (léger, sans duplication DOM) */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbsLd) }}
+      />
     </main>
   );
 }

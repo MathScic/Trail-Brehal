@@ -3,6 +3,14 @@
 import Image from "next/image";
 import Link from "next/link";
 
+type Course = {
+  km: number;
+  name: string;
+  desc: string;
+  img: string;
+  signupUrl: string;
+};
+
 export default function CourseCard({
   course,
   priority = false,
@@ -14,19 +22,23 @@ export default function CourseCard({
 }) {
   return (
     <article className="group rounded-2xl overflow-hidden bg-white/95 backdrop-blur border border-white/60 shadow-md transition hover:shadow-lg hover:-translate-y-0.5 text-center h-[400px] flex flex-col">
-      {/* Image plus présente : ratio 16/10 */}
+      {/* Image ratio 16/10 */}
       <div className="relative w-full aspect-[16/10] bg-gray-100">
         <Image
           src={course.img}
-          alt={`${course.km} km – ${course.name}`}
+          alt={`Course ${course.km} km – ${course.name}`}
           fill
           priority={priority}
           className="object-cover"
-          sizes={size === "sm" ? "100vw" : "(min-width: 768px) 33vw, 100vw"}
+          sizes={
+            size === "sm"
+              ? "100vw"
+              : "(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+          }
         />
       </div>
 
-      {/* Contenu compact */}
+      {/* Contenu */}
       <div className="p-5 flex flex-col flex-1 items-center justify-between">
         <div>
           <h3
@@ -34,7 +46,7 @@ export default function CourseCard({
               size === "sm" ? "text-lg" : "text-xl md:text-2xl"
             } line-clamp-1`}
           >
-            {course.km} km - {course.name}
+            {course.km} km – {course.name}
           </h3>
           <p className="text-gray-600 mt-2 text-center text-sm line-clamp-2">
             {course.desc}
@@ -45,7 +57,7 @@ export default function CourseCard({
           href={course.signupUrl}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label={`Inscription ${course.km} km – ${course.name}`}
+          aria-label={`S’inscrire à la course ${course.km} km – ${course.name}`}
           className="mt-4 inline-flex items-center justify-center rounded-lg bg-blue-700 px-5 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-800 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
         >
           S’inscrire

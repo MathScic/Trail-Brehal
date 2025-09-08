@@ -142,7 +142,7 @@ export default function Header() {
         {/* LOGO CENTRÉ */}
         <Link href="/" className="absolute left-1/2 -translate-x-1/2">
           <img
-            src="/images/logo-bréhal.png"
+            src="/images/logo-brehal.png"
             alt="Logo La Bréhalaise"
             width={90}
             height={90}

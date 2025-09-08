@@ -155,7 +155,7 @@ export default function InfosPratiquesPage() {
               </p>
               <p>
                 <span className="font-semibold text-brand-dark">Lieu :</span>{" "}
-                Chapiteau / stand dossards (village départ).
+                Place de Monaco, Bréhal (villagfe départ)
               </p>
               <p>
                 Pièce d’identité obligatoire. Pour les mineurs : autorisation
@@ -167,9 +167,8 @@ export default function InfosPratiquesPage() {
           {/* Parking */}
           <AccordionSection id="parking" title="Parking">
             <p>
-              Parking gratuit au stade de La Bréhalaise,{" "}
-              <span className="whitespace-nowrap">15 Avenue de Lydney</span>{" "}
-              (places limitées ~150).
+              Parking gratuit à l'hipodrome de Bréhal,{" "}
+              <span className="whitespace-nowrap">1??</span> .
             </p>
           </AccordionSection>
 
@@ -187,8 +186,8 @@ export default function InfosPratiquesPage() {
             <div className="grid md:grid-cols-2 gap-6">
               <div className="space-y-2">
                 <p>
-                  Pré‑inscription en ligne recommandée (clôture : voir
-                  plateforme).
+                  Pré‑inscription en ligne recommandée sur le lien
+                  "Inscriptions"(clôture : voir plateforme).
                 </p>
                 <ul className="list-disc pl-5">
                   <li>10,2 km — 10€</li>

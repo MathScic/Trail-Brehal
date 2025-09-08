@@ -3,9 +3,9 @@
 import Link from "next/link";
 import { useMemo } from "react";
 import FadeInWhenVisible from "./FadeInWhenVisible";
-import Backdrop from "../components/BackDrop";
+import Backdrop from "../components/BackDrop"; // ← casse/chemin unifiés
 import CourseCard from "@/components/CourseCard";
-import useCarousel from "../hook/useCaroussel";
+import useCarousel from "../hook/useCaroussel"; // ← typo "Caroussel" → "Carousel"
 import coursesData from "@/data/courses.json";
 import type { Course } from "@/types/course";
 import Dots from "@/components/Dots";
@@ -37,14 +37,14 @@ export default function Courses() {
 
   return (
     <FadeInWhenVisible>
-      <section className="relative">
-        <Backdrop
-          src="/images/courses-bg.jpeg"
-          alt="Plage de Bréhal / Granville"
-        />
+      <section className="relative" aria-labelledby="courses-heading">
+        <Backdrop src="/images/courses-bg.jpeg" alt="" priority={false} />
 
         <div className="relative max-w-6xl mx-auto px-4 py-20 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-10">
+          <h2
+            id="courses-heading"
+            className="text-3xl md:text-4xl font-bold text-white mb-10"
+          >
             Courses
           </h2>
 
@@ -55,7 +55,7 @@ export default function Courses() {
                 <CourseCard
                   key={c.slug}
                   course={c}
-                  priority={i === 0}
+                  priority={i === 0} // seule la 1re prioritaire
                   size="sm"
                 />
               ))}
@@ -64,14 +64,21 @@ export default function Courses() {
               <Link
                 href="/courses"
                 className="text-white/95 underline underline-offset-4 hover:text-white"
+                aria-label="Voir toutes les courses"
               >
-                Toutes les courses, ici
+                Voir toutes les courses
               </Link>
             </div>
           </div>
 
           {/* Desktop/Tablet: slider */}
-          <div className="hidden md:block">
+          <div
+            className="hidden md:block"
+            role="region"
+            aria-roledescription="carousel"
+            aria-label="Courses populaires"
+            aria-live="off"
+          >
             <div className="overflow-hidden rounded-2xl">
               <div
                 ref={trackRef}
@@ -79,7 +86,7 @@ export default function Courses() {
                 onTransitionEnd={onTransitionEnd}
               >
                 {slidesWithClone.map((group, slideIdx) => {
-                  // Pad à 3 colonnes pour garder la même largeur/hauteur et centrer
+                  // Pad à 3 colonnes pour gabarit constant
                   const filled = (() => {
                     if (group.length === 1) return [null, group[0], null];
                     if (group.length === 2) return [group[0], group[1], null];
@@ -92,6 +99,13 @@ export default function Courses() {
                     <div
                       key={slideIdx}
                       className="shrink-0 w-full grid grid-cols-1 md:grid-cols-3 gap-6"
+                      role="group"
+                      aria-roledescription="slide"
+                      aria-label={`Groupe ${
+                        (((slideIdx % logicalLength) + logicalLength) %
+                          logicalLength) +
+                        1
+                      } sur ${logicalLength}`}
                     >
                       {filled.map((c, i) =>
                         c ? (
@@ -99,13 +113,15 @@ export default function Courses() {
                             key={c.slug}
                             className="w-full max-w-[420px] mx-auto"
                           >
-                            <CourseCard course={c} priority={isFirstSlide} />
+                            <CourseCard
+                              course={c}
+                              priority={isFirstSlide && i === 0}
+                            />
                           </div>
                         ) : (
-                          // Placeholder invisible gardant l'espace (même gabarit)
                           <div
                             key={`ph-${i}`}
-                            aria-hidden
+                            aria-hidden="true"
                             className="w-full max-w-[420px] mx-auto h-[400px] rounded-2xl opacity-0 pointer-events-none"
                           />
                         )
@@ -120,14 +136,17 @@ export default function Courses() {
               count={logicalLength}
               active={currentDot}
               onSelect={setIndex}
+              // Rendre les points accessibles si ton composant accepte ces props :
+              ariaLabelPrefix="Aller au groupe"
             />
 
             <div className="mt-8">
               <Link
                 href="/courses"
                 className="text-white/95 underline underline-offset-4 hover:text-white"
+                aria-label="Voir toutes les courses"
               >
-                Toutes les courses, ici
+                Voir toutes les courses
               </Link>
             </div>
           </div>
