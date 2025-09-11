@@ -51,7 +51,7 @@ export default function MerEtBocage() {
             className="absolute rounded-full bg-[#2563EB] text-white shadow-lg px-6 py-4 text-center flex flex-col items-center justify-center"
             style={{ top: "40px", right: "20px" }}
           >
-            <span className="block text-lg font-bold leading-none">10e</span>
+            <span className="block text-lg font-bold leading-none">e</span>
             <span className="block text-xs font-medium leading-tight">
               éditions
             </span>
@@ -62,9 +62,9 @@ export default function MerEtBocage() {
             className="absolute rounded-full bg-[#38BDF8] text-white shadow-lg px-6 py-4 text-center flex flex-col items-center justify-center"
             style={{ bottom: "20px", right: "28px" }}
           >
-            <span className="block text-lg font-bold leading-none">3</span>
+            <span className="block text-lg font-bold leading-none">2</span>
             <span className="block text-xs font-medium leading-tight">
-              courses
+              courses adultes
             </span>
             <span className="block text-xs font-medium leading-tight">
               programmées
