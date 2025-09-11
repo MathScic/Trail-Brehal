@@ -41,6 +41,7 @@ export default function GaleriePage() {
     url: `${SITE}/galerie`,
     name: "Galerie photos – Trail des Vikings",
     hasPart: editions.map((ed) => {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const part: any = {
         "@type": "ImageGallery",
         "@id": `${SITE}/galerie#${ed.id}`,
