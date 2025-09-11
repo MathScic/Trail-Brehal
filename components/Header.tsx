@@ -1,7 +1,9 @@
+// components/Header.tsx
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import coursesData from "@/data/courses.json";
@@ -21,7 +23,6 @@ export default function Header() {
 
   const courses = coursesData as Course[];
   const pathname = usePathname();
-
   const isHome = pathname === "/";
 
   const navLinkStyle =
@@ -89,7 +90,6 @@ export default function Header() {
                     transition={{ duration: 0.2, ease: "easeOut" }}
                     className="absolute left-0 mt-2 w-72 rounded-xl bg-white text-blue-900 shadow-lg border border-gray-200 p-2 z-[60] overflow-hidden origin-top"
                   >
-                    {/* 👉 Lien vers /courses */}
                     <Link
                       href="/courses"
                       className="block px-3 py-2 rounded-md hover:bg-gray-100 font-medium"
@@ -98,8 +98,6 @@ export default function Header() {
                       Tous les parcours
                     </Link>
                     <div className="my-2 h-px bg-gray-200" />
-
-                    {/* 👉 Chaque course redirige vers son site d'inscription */}
                     <ul className="max-h-[60vh] overflow-auto">
                       {courses.map((c) => (
                         <li key={c.slug}>
@@ -133,7 +131,7 @@ export default function Header() {
             >
               Inscriptions
             </Link>
-            <Link href="/gallerie" className={navLinkStyle}>
+            <Link href="/galerie" className={navLinkStyle}>
               Galerie
             </Link>
           </div>
@@ -141,41 +139,50 @@ export default function Header() {
 
         {/* LOGO CENTRÉ */}
         <Link href="/" className="absolute left-1/2 -translate-x-1/2">
-          <img
+          <Image
             src="/images/logo-brehal.png"
             alt="Logo La Bréhalaise"
             width={90}
             height={90}
             className="object-contain"
+            priority={false}
           />
         </Link>
 
-        {/* BURGER MENU (mobile) */}
-        <button
-          onClick={() => setMenuOpen(true)}
-          className="md:hidden absolute top-6 right-4 z-50 focus:outline-none"
-        >
-          <div className="space-y-1">
-            <div className="w-6 h-0.5 bg-white"></div>
-            <div className="w-6 h-0.5 bg-white"></div>
-            <div className="w-6 h-0.5 bg-white"></div>
-          </div>
-        </button>
+        {/* BURGER MENU (mobile) — masqué quand ouvert */}
+        {!menuOpen && (
+          <button
+            onClick={() => setMenuOpen(true)}
+            className="md:hidden absolute top-6 right-4 z-50 focus:outline-none"
+            aria-label="Ouvrir le menu"
+            aria-expanded={false}
+            aria-controls="mobile-menu"
+          >
+            <div className="space-y-1">
+              <div className="w-6 h-0.5 bg-white"></div>
+              <div className="w-6 h-0.5 bg-white"></div>
+              <div className="w-6 h-0.5 bg-white"></div>
+            </div>
+          </button>
+        )}
       </div>
 
       {/* MENU MOBILE SLIDE */}
       <AnimatePresence>
         {menuOpen && (
-          <motion.div
+          <motion.nav
+            id="mobile-menu"
             initial={{ x: "100%" }}
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ duration: 0.3 }}
             className="fixed top-0 right-0 h-full w-64 bg-blue-900 text-white shadow-lg z-40 p-6 space-y-4 overflow-auto"
+            aria-label="Menu mobile"
           >
             <button
               onClick={() => setMenuOpen(false)}
               className="font-bold text-right w-full"
+              aria-label="Fermer le menu"
             >
               ✕ Fermer
             </button>
@@ -202,13 +209,13 @@ export default function Header() {
               Inscriptions
             </Link>
             <Link
-              href="/gallerie"
+              href="/galerie"
               onClick={() => setMenuOpen(false)}
               className="block font-semibold"
             >
               Galerie
             </Link>
-          </motion.div>
+          </motion.nav>
         )}
       </AnimatePresence>
     </motion.header>
