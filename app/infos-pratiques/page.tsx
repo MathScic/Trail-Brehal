@@ -3,6 +3,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 function AccordionSection({
   id,
@@ -70,6 +71,7 @@ export default function InfosPratiquesPage() {
   return (
     <main className="relative">
       {/* Bandeau principal (bleu foncé) */}
+
       <section className="bg-brand-dark text-white">
         <div className="max-w-6xl mx-auto px-4 py-10 md:py-12">
           <h1 className="text-3xl md:text-4xl font-bold">Infos pratiques</h1>
@@ -284,6 +286,25 @@ export default function InfosPratiquesPage() {
           </AccordionSection>
         </div>
       </section>
+      {/* Illustration de clôture */}
+      <div className="mt-10">
+        <figure className="relative w-full max-w-4xl mx-auto aspect-[16/9] overflow-hidden rounded-2xl shadow">
+          <Image
+            src="/images/Trail des vikings.jpg"
+            alt="Affiche du Trail des Vikings"
+            fill
+            className="object-cover"
+            sizes="(min-width: 1280px) 768px, (min-width: 768px) 80vw, 100vw"
+            loading="lazy"
+          />
+        </figure>
+        <figcaption className="text-center text-sm text-brand-graytext mt-3">
+          Affiche – Trail des Vikings
+        </figcaption>
+      </div>
+
+      {/* espace bas pour ne pas coller le footer */}
+      <div className="pb-16" />
     </main>
   );
 }
