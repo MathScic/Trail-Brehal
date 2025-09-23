@@ -5,18 +5,29 @@
     "href": "https://www.facebook.com/profile.php?id=100066431092095"
   },
   {
-    "name": "Super U Bréhal",
-    "logo": "/images/partenaires/Super-U.png",
-    "href": "https://www.manche.fr"
+    "name": "Pierre Alexandre",
+    "logo": "/images/Pierre-Alexandre.jpg",
+    "href": ""
   },
   {
-    "name": "Sponsor du club",
-    "logo": "/images/partenaires/Adidas_logo.png",
-    "href": "https://www.adidasteam.com/fr-fr/clubshop/la-brehalaise"
+    "name": "Daniel Moquet",
+    "logo": "/images/Daniel-moquet.png",
+    "href": ""
   },
   {
-    "name": "Les Lunetiers",
-    "logo": "/images/partenaires/LesLunetiers.png",
-    "href": "https://www.lecollectifdeslunetiers.fr/opticien/france/manche/opticien-brehal/brehal-moquet?armclid=CjwKCAjwisnGBhAXEiwA0zEORzrLQBp5V1EErKFmzTuVTeLV-HrpjvvyQBynlNe5y0GvnM7abpmqwxoC2EoQAvD_BwE&utm_source=armis&utm_medium=display_branding&utm_platform=adwords&utm_campaign=2025-op-classique-cdl-google-fil-rouge&gad_source=1&gad_campaignid=22094852130&gclid=CjwKCAjwisnGBhAXEiwA0zEORzrLQBp5V1EErKFmzTuVTeLV-HrpjvvyQBynlNe5y0GvnM7abpmqwxoC2EoQAvD_BwE"
+    "name": "Crédit Mutuels",
+    "logo": "/images/Credit mutuel.png",
+    "href": ""
+  },
+
+  {
+    "name": "Pozzo Immobillier",
+    "logo": "/images/Pozzo.png",
+    "href": ""
+  },
+  {
+    "name": "Herman",
+    "logo": "/images/Hermanon.jpeg",
+    "href": ""
   }
 ]

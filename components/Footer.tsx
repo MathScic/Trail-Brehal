@@ -20,7 +20,6 @@ export default function Footer() {
           <a href="mailto:letraildesvikings50@gmail.com">
             letraildesvikings50@gmail.com
           </a>
-          <p>06 12 34 56 78</p>
         </div>
 
         {/* Réseaux sociaux */}

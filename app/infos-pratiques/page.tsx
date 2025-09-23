@@ -194,6 +194,7 @@ export default function InfosPratiquesPage() {
                 <ul className="list-disc pl-5">
                   <li>10,2 km — 12€</li>
                   <li>5,2 km — 10€</li>
+                  <li>Challenge Entreprise — 80€ pour 4 personnes</li>
                   <li>Marche — 5€</li>
                   <li>Enfants — 3€</li>
                 </ul>
@@ -287,24 +288,22 @@ export default function InfosPratiquesPage() {
         </div>
       </section>
       {/* Illustration de clôture */}
+      {/* Illustration de clôture */}
       <div className="mt-10">
-        <figure className="relative w-full max-w-4xl mx-auto aspect-[16/9] overflow-hidden rounded-2xl shadow">
+        <figure className="w-full max-w-4xl mx-auto rounded-2xl overflow-hidden shadow bg-white">
           <Image
             src="/images/Trail des vikings.jpg"
             alt="Affiche du Trail des Vikings"
-            fill
-            className="object-cover"
-            sizes="(min-width: 1280px) 768px, (min-width: 768px) 80vw, 100vw"
-            loading="lazy"
+            width={1200}
+            height={1600} // choisis une valeur proche du ratio réel de ton image
+            className="mx-auto object-contain h-auto w-full"
+            priority={false}
           />
         </figure>
         <figcaption className="text-center text-sm text-brand-graytext mt-3">
           Affiche – Trail des Vikings
         </figcaption>
       </div>
-
-      {/* espace bas pour ne pas coller le footer */}
-      <div className="pb-16" />
     </main>
   );
 }
