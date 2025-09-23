@@ -53,7 +53,7 @@ export default function MerEtBocage() {
           >
             <span className="block text-lg font-bold leading-none">2e</span>
             <span className="block text-xs font-medium leading-tight">
-              éditions
+              édition
             </span>
           </div>
 
