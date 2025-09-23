@@ -150,7 +150,7 @@ export default function InfosPratiquesPage() {
                   Horaires :
                 </span>{" "}
                 à partir de{" "}
-                <span className="font-medium text-brand-dark">7h30</span> (jour
+                <span className="font-medium text-brand-dark">8h</span> (jour
                 J).
               </p>
               <p>
@@ -175,9 +175,8 @@ export default function InfosPratiquesPage() {
           {/* Restauration */}
           <AccordionSection id="restauration" title="Restauration">
             <p>
-              Des food-trucks seront présents sur le village pour proposer
-              différents styles de nourriture et boissons. Privilégiez les
-              paiements par carte si possible.
+              {/* Des food-trucks seront présents sur le village pour proposer
+              différents styles de nourriture et boissons. */}
             </p>
           </AccordionSection>
 
@@ -191,9 +190,9 @@ export default function InfosPratiquesPage() {
                   voir plateforme).
                 </p>
                 <ul className="list-disc pl-5">
-                  <li>10,2 km — 10€</li>
-                  <li>5,2 km — 8€</li>
-                  <li>Marche — 3€</li>
+                  <li>10,2 km — 12€</li>
+                  <li>5,2 km — 10€</li>
+                  <li>Marche — 5€</li>
                   <li>Enfants — 3€</li>
                 </ul>
                 <Link
@@ -223,14 +222,16 @@ export default function InfosPratiquesPage() {
             <div className="grid md:grid-cols-2 gap-6">
               <ul className="list-disc pl-5 space-y-1">
                 <li>Consignes / sacs : oui (près du village)</li>
-                <li>Toilettes : zone départ + parking</li>
+                <li>
+                  Toilettes : zone départ + parking + cale principale de Saint
+                  Martin
+                </li>
                 <li>Ravitaillements : voir roadbook / briefing départ</li>
-                <li>Vestiaires / douches : selon dispo site (à confirmer)</li>
               </ul>
               <ul className="list-disc pl-5 space-y-1">
-                <li>Accessibilité : zones balisées (handisport bienvenu)</li>
                 <li>Objets trouvés : au point info</li>
                 <li>Contact jour J : affiché au retrait des dossards</li>
+                <li>Tri Selectif bien présent</li>
               </ul>
             </div>
           </AccordionSection>

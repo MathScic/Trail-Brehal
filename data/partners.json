@@ -1,12 +1,22 @@
 [
   {
-    "name": "Ville de Bréhal",
-    "logo": "/images/partners/brehal.png",
-    "href": "https://www.brehal.fr"
+    "name": "Du Coin de L'oeil Photographie",
+    "logo": "/images/Ducoindeloeil_photo.jpg",
+    "href": "https://www.facebook.com/profile.php?id=100066431092095"
   },
   {
-    "name": "Département de la Manche",
-    "logo": "/images/partners/manche.png",
+    "name": "Super U Bréhal",
+    "logo": "/images/partenaires/Super-U.png",
     "href": "https://www.manche.fr"
+  },
+  {
+    "name": "Sponsor du club",
+    "logo": "/images/partenaires/Adidas_logo.png",
+    "href": "https://www.adidasteam.com/fr-fr/clubshop/la-brehalaise"
+  },
+  {
+    "name": "Les Lunetiers",
+    "logo": "/images/partenaires/LesLunetiers.png",
+    "href": "https://www.lecollectifdeslunetiers.fr/opticien/france/manche/opticien-brehal/brehal-moquet?armclid=CjwKCAjwisnGBhAXEiwA0zEORzrLQBp5V1EErKFmzTuVTeLV-HrpjvvyQBynlNe5y0GvnM7abpmqwxoC2EoQAvD_BwE&utm_source=armis&utm_medium=display_branding&utm_platform=adwords&utm_campaign=2025-op-classique-cdl-google-fil-rouge&gad_source=1&gad_campaignid=22094852130&gclid=CjwKCAjwisnGBhAXEiwA0zEORzrLQBp5V1EErKFmzTuVTeLV-HrpjvvyQBynlNe5y0GvnM7abpmqwxoC2EoQAvD_BwE"
   }
 ]
