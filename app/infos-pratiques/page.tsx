@@ -8,7 +8,7 @@ import Image from "next/image";
 function AccordionSection({
   id,
   title,
-  defaultOpen = false, // ← replié par défaut
+  defaultOpen = false,
   children,
 }: {
   id: string;
@@ -36,13 +36,14 @@ function AccordionSection({
             width="18"
             height="18"
             viewBox="0 0 24 24"
-            className="text-brand-dark"
+            className="text-[#0d1b33]"
           >
             <path fill="currentColor" d="M8 5l10 7-10 7V5z" />
           </svg>
         </span>
+
         {/* Titre */}
-        <h2 className="text-lg md:text-xl font-semibold text-brand-dark">
+        <h2 className="text-lg md:text-xl font-semibold text-[#0d1b33]">
           {title}
         </h2>
       </button>
@@ -55,7 +56,7 @@ function AccordionSection({
         }`}
       >
         <div className="overflow-hidden">
-          <div className="pt-4 pb-6 text-sm md:text-base text-brand-graytext">
+          <div className="pt-4 pb-6 text-sm md:text-base text-[#4b5563]">
             {children}
           </div>
         </div>
@@ -69,26 +70,26 @@ function AccordionSection({
 
 export default function InfosPratiquesPage() {
   return (
-    <main className="relative">
+    // IMPORTANT : z-30 < Header (z-50), mais > à tout overlay parasite bas-niveau
+    <main className="relative z-30 !opacity-100">
       {/* Bandeau principal (bleu foncé) */}
-
-      <section className="bg-brand-dark text-white">
+      <section className="bg-[#0d1b33] text-white">
         <div className="max-w-6xl mx-auto px-4 py-10 md:py-12">
           <h1 className="text-3xl md:text-4xl font-bold">Infos pratiques</h1>
-          <p className="text-white/80 mt-2">
+          <p className="mt-2 text-white/90">
             Tout ce qu’il faut savoir avant le jour J.
           </p>
         </div>
       </section>
 
-      {/* Corps au style de ta maquette */}
-      <section className="bg-brand-graybg">
+      {/* Corps */}
+      <section className="bg-[#f6f7fb]">
         <div className="max-w-4xl mx-auto px-4 py-8 md:py-12">
           {/* Accès */}
           <AccordionSection id="acces" title="Accès">
             <div className="grid md:grid-cols-2 gap-6">
               <div className="space-y-2">
-                <p className="font-semibold text-brand-dark">
+                <p className="font-semibold text-[#0d1b33]">
                   Adresse de départ :
                 </p>
                 <p>
@@ -98,45 +99,45 @@ export default function InfosPratiquesPage() {
                 </p>
               </div>
               <div className="space-y-2">
-                <p className="font-semibold text-brand-dark">
+                <p className="font-semibold text-[#0d1b33]">
                   Horaires de départ (adultes) :
                 </p>
                 <ul className="space-y-1">
                   <li>
                     5,1 km —{" "}
-                    <span className="font-medium text-brand-dark">10h</span>
+                    <span className="font-medium text-[#0d1b33]">10h</span>
                   </li>
                   <li>
                     10,1 km —{" "}
-                    <span className="font-medium text-brand-dark">11h15</span>
+                    <span className="font-medium text-[#0d1b33]">11h15</span>
                   </li>
                   <li>
                     Marche 0,00 km —{" "}
-                    <span className="font-medium text-brand-dark">10h30</span>
+                    <span className="font-medium text-[#0d1b33]">10h30</span>
                   </li>
                 </ul>
-                <p className="font-semibold text-brand-dark mt-3">
+                <p className="font-semibold text-[#0d1b33] mt-3">
                   Courses enfants :
                 </p>
                 <ul className="space-y-1">
                   <li>
                     0,0 km —{" "}
-                    <span className="font-medium text-brand-dark">14h00</span>{" "}
+                    <span className="font-medium text-[#0d1b33]">14h00</span>{" "}
                     (nés 2017-2018)
                   </li>
                   <li>
                     1,1 km —{" "}
-                    <span className="font-medium text-brand-dark">14h30</span>{" "}
+                    <span className="font-medium text-[#0d1b33]">14h30</span>{" "}
                     (nés 2015-2016)
                   </li>
                   <li>
                     2,2 km —{" "}
-                    <span className="font-medium text-brand-dark">15h15</span>{" "}
+                    <span className="font-medium text-[#0d1b33]">15h15</span>{" "}
                     (nés 2013–2014)
                   </li>
                   <li>
                     2,8 km —{" "}
-                    <span className="font-medium text-brand-dark">16h15</span>{" "}
+                    <span className="font-medium text-[#0d1b33]">16h15</span>{" "}
                     (nés 2011–2012)
                   </li>
                 </ul>
@@ -148,15 +149,12 @@ export default function InfosPratiquesPage() {
           <AccordionSection id="dossards" title="Retrait des dossards">
             <div className="space-y-2">
               <p>
-                <span className="font-semibold text-brand-dark">
-                  Horaires :
-                </span>{" "}
+                <span className="font-semibold text-[#0d1b33]">Horaires :</span>{" "}
                 à partir de{" "}
-                <span className="font-medium text-brand-dark">8h</span> (jour
-                J).
+                <span className="font-medium text-[#0d1b33]">8h</span> (jour J).
               </p>
               <p>
-                <span className="font-semibold text-brand-dark">Lieu :</span>{" "}
+                <span className="font-semibold text-[#0d1b33]">Lieu :</span>{" "}
                 Place de Monaco, Bréhal (village de départ)
               </p>
               <p>
@@ -199,13 +197,13 @@ export default function InfosPratiquesPage() {
                   href="https://www.normandiecourseapied.com/fiches-course-foulees-cross-trail-normandie-2025/manche/run-des-vikings-brehal-2025.html"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex rounded-lg bg-brand-dark px-4 py-2 text-white font-semibold hover:bg-brand-medium"
+                  className="inline-flex rounded-lg bg-[#0d1b33] px-4 py-2 text-white font-semibold hover:bg-[#11264a]"
                 >
                   S’inscrire en ligne
                 </Link>
               </div>
               <div className="rounded-xl border p-4 bg-white">
-                <p className="font-semibold text-brand-dark">
+                <p className="font-semibold text-[#0d1b33]">
                   Licence FFA ou PPS
                 </p>
                 <p className="text-sm mt-2">
@@ -255,17 +253,8 @@ export default function InfosPratiquesPage() {
           {/* FAQ */}
           <AccordionSection id="faq" title="FAQ">
             <div className="divide-y rounded-xl border bg-white">
-              {/* <details className="p-4">
-                <summary className="cursor-pointer font-semibold text-brand-dark">
-                  Puis-je changer de course ?
-                </summary>
-                <p className="mt-2">
-                  Oui selon disponibilités, jusqu’à la clôture des inscriptions
-                  en ligne.
-                </p>
-              </details> */}
               <details className="p-4">
-                <summary className="cursor-pointer font-semibold text-brand-dark">
+                <summary className="cursor-pointer font-semibold text-[#0d1b33]">
                   Politique d’annulation
                 </summary>
                 <p className="mt-2">
@@ -273,7 +262,7 @@ export default function InfosPratiquesPage() {
                 </p>
               </details>
               <details className="p-4">
-                <summary className="cursor-pointer font-semibold text-brand-dark">
+                <summary className="cursor-pointer font-semibold text-[#0d1b33]">
                   Matériel recommandé
                 </summary>
                 <p className="mt-2">
@@ -284,7 +273,7 @@ export default function InfosPratiquesPage() {
           </AccordionSection>
         </div>
       </section>
-      {/* Illustration de clôture */}
+
       {/* Illustration de clôture */}
       <div className="mt-10">
         <figure className="w-full max-w-4xl mx-auto rounded-2xl overflow-hidden shadow bg-white">
@@ -292,12 +281,12 @@ export default function InfosPratiquesPage() {
             src="/images/Trail des vikings.jpg"
             alt="Affiche du Trail des Vikings"
             width={1200}
-            height={1600} // choisis une valeur proche du ratio réel de ton image
+            height={1600}
             className="mx-auto object-contain h-auto w-full"
             priority={false}
           />
         </figure>
-        <figcaption className="text-center text-sm text-brand-graytext mt-3">
+        <figcaption className="text-center text-sm text-[#4b5563] mt-3">
           Affiche – Trail des Vikings
         </figcaption>
       </div>
