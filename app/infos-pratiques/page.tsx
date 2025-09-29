@@ -176,10 +176,7 @@ export default function InfosPratiquesPage() {
 
           {/* Restauration */}
           <AccordionSection id="restauration" title="Restauration">
-            <p>
-              {/* Des food-trucks seront présents sur le village pour proposer
-              différents styles de nourriture et boissons. */}
-            </p>
+            <p>A venir</p>
           </AccordionSection>
 
           {/* Inscriptions */}
@@ -209,7 +206,7 @@ export default function InfosPratiquesPage() {
               </div>
               <div className="rounded-xl border p-4 bg-white">
                 <p className="font-semibold text-brand-dark">
-                  Certificat / Licence
+                  Licence FFA ou PPS
                 </p>
                 <p className="text-sm mt-2">
                   Course chronométrée : licence FFA valide ou certificat médical
@@ -250,15 +247,15 @@ export default function InfosPratiquesPage() {
           {/* Écoresponsable */}
           <AccordionSection id="eco" title="Engagement écoresponsable">
             <p>
-              Tri des déchets sur zone, gobelets réutilisables, aucun jet de
-              déchets sur le parcours (pénalités). Co-voiturage encouragé.
+              Tri des déchets sur zone, aucun jet de déchets sur le parcours
+              (pénalités). Co-voiturage encouragé.
             </p>
           </AccordionSection>
 
           {/* FAQ */}
           <AccordionSection id="faq" title="FAQ">
             <div className="divide-y rounded-xl border bg-white">
-              <details className="p-4">
+              {/* <details className="p-4">
                 <summary className="cursor-pointer font-semibold text-brand-dark">
                   Puis-je changer de course ?
                 </summary>
@@ -266,7 +263,7 @@ export default function InfosPratiquesPage() {
                   Oui selon disponibilités, jusqu’à la clôture des inscriptions
                   en ligne.
                 </p>
-              </details>
+              </details> */}
               <details className="p-4">
                 <summary className="cursor-pointer font-semibold text-brand-dark">
                   Politique d’annulation

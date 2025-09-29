@@ -42,7 +42,7 @@ export default function Header() {
     >
       {/* Barre principale */}
       <div className="max-w-6xl mx-auto px-4 py-8 md:py-7 flex items-center justify-between md:justify-center">
-        {/* NAVIGATION CENTRALE */}
+        {/* NAVIGATION CENTRALE (desktop) */}
         <div className="hidden md:flex w-[80%] justify-between items-center mx-auto">
           {/* Liens gauche */}
           <div className="flex gap-40">
@@ -78,7 +78,7 @@ export default function Header() {
                 </motion.svg>
               </button>
 
-              {/* Dropdown panel animé */}
+              {/* Dropdown (desktop) */}
               <AnimatePresence>
                 {parcoursOpen && (
                   <motion.div
@@ -153,7 +153,7 @@ export default function Header() {
         {!menuOpen && (
           <button
             onClick={() => setMenuOpen(true)}
-            className="md:hidden absolute top-6 right-4 z-50 focus:outline-none"
+            className="md:hidden absolute top-6 right-4 z-[70] focus:outline-none"
             aria-label="Ouvrir le menu"
             aria-expanded={false}
             aria-controls="mobile-menu"
@@ -167,6 +167,15 @@ export default function Header() {
         )}
       </div>
 
+      {/* === OVERLAY (mobile) – cliquable pour fermer === */}
+      {menuOpen && (
+        <button
+          aria-label="Fermer le menu"
+          onClick={() => setMenuOpen(false)}
+          className="fixed inset-0 z-[60] bg-black/40 backdrop-blur-sm md:hidden"
+        />
+      )}
+
       {/* MENU MOBILE SLIDE */}
       <AnimatePresence>
         {menuOpen && (
@@ -176,7 +185,7 @@ export default function Header() {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ duration: 0.3 }}
-            className="fixed top-0 right-0 h-full w-64 bg-blue-900 text-white shadow-lg z-40 p-6 space-y-4 overflow-auto"
+            className="fixed top-0 right-0 h-[100dvh] w-64 bg-blue-900 text-white shadow-lg z-[70] p-6 space-y-4 overflow-auto md:hidden"
             aria-label="Menu mobile"
           >
             <button
