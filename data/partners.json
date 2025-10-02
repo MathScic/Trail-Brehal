@@ -27,7 +27,12 @@
   },
   {
     "name": "Herman",
-    "logo": "/images/Hermanon.jpeg",
+    "logo": "/images/partenaires/Hermann.png",
     "href": ""
+  },
+  {
+    "name": "Boulangerie Champ Libre",
+    "logo": "/images/partenaires/Boulangerie-Champ-Libre-1.png",
+    "href": "https://www.instagram.com/boulangerie_champs_libres"
   }
 ]
