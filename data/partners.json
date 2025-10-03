@@ -34,5 +34,11 @@
     "name": "Boulangerie Champ Libre",
     "logo": "/images/partenaires/Boulangerie-Champ-Libre-1.png",
     "href": "https://www.instagram.com/boulangerie_champs_libres"
+  },
+
+  {
+    "name": "Agence Immo Pozzo",
+    "logo": "/images/partenaires/pozzo.jpg",
+    "href": "https://www.pozzo-immobilier.fr/fr/nos-agences/yquelon-service-copropriete/97"
   }
 ]
