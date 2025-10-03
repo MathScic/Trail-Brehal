@@ -28,7 +28,7 @@
 
   {
     "slug": "Marche",
-    "km": 5,
+    "km": 0,
     "name": "La rando des Vikings",
     "desc": "Ouverte à tous. Départ 10h30, Place Monaco 50290 Bréhal. Arrivée au même endroit que le départ.. Inscription 5€ / pers.",
     "img": "/images/courses-marche.jpg",
@@ -36,7 +36,7 @@
   },
   {
     "slug": "Course enfants - 2017/2018",
-    "km": 0,
+    "km": 580,
     "name": "Le mini-drakar",
     "desc": "Départ 14h, Place Monaco 50290 Bréhal. Arrivée au même endroit que le départ.. Inscription 3€ / pers.",
     "img": "/images/courses-enfants-1.jpeg",
@@ -63,7 +63,7 @@
 
   {
     "slug": "Course enfants - 2011/2012",
-    "km": 2.8,
+    "km": 3.3,
     "name": "Raid des vikings",
     "desc": "Départ 16h15, Place Monaco 50290 Bréhal. Arrivée au même endroit que le départ.. Inscription ??€ / pers.",
     "img": "/images/Apprendit-guerriers.jpg",
