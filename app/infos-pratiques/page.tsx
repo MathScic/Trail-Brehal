@@ -278,7 +278,7 @@ export default function InfosPratiquesPage() {
       <div className="mt-10">
         <figure className="w-full max-w-4xl mx-auto rounded-2xl overflow-hidden shadow bg-white">
           <Image
-            src="/images/Trail des vikings.jpg"
+            src="/images/Trails-Vikings.png"
             alt="Affiche du Trail des Vikings"
             width={1200}
             height={1600}
