@@ -121,7 +121,7 @@ export default function InfosPratiquesPage() {
                 </p>
                 <ul className="space-y-1">
                   <li>
-                    0,0 km —{" "}
+                    580 m —{" "}
                     <span className="font-medium text-[#0d1b33]">14h00</span>{" "}
                     (nés 2017-2018)
                   </li>
@@ -136,7 +136,7 @@ export default function InfosPratiquesPage() {
                     (nés 2013–2014)
                   </li>
                   <li>
-                    2,8 km —{" "}
+                    3,3 km —{" "}
                     <span className="font-medium text-[#0d1b33]">16h15</span>{" "}
                     (nés 2011–2012)
                   </li>
@@ -219,7 +219,6 @@ export default function InfosPratiquesPage() {
           <AccordionSection id="logistique" title="Infos logistiques">
             <div className="grid md:grid-cols-2 gap-6">
               <ul className="list-disc pl-5 space-y-1">
-                <li>Consignes / sacs : oui (près du village)</li>
                 <li>
                   Toilettes : zone départ + parking + cale principale de Saint
                   Martin
