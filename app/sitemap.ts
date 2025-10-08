@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const SITE_URL = "https://trail-brehal.fr";
+const SITE_URL = "https://trail-des-vikings.fr";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();

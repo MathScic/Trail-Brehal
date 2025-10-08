@@ -4,7 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 // TODO: mets ton domaine prod ici (https://exemple.fr)
-const SITE_URL = "https://trail-brehal.fr";
+const SITE_URL = "https://trail-des-vikings.fr";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
