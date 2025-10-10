@@ -34,5 +34,20 @@
     "name": "Agence Immo Pozzo",
     "logo": "/images/partenaires/pozzo.jpg",
     "href": "https://www.pozzo-immobilier.fr/fr/nos-agences/yquelon-service-copropriete/97"
+  },
+  {
+    "name": "Ici Cotentien",
+    "logo": "/images/partenaires/ici-cotentin.png",
+    "href": "https://www.francebleu.fr/radio/cotentin"
+  },
+  {
+    "name": "Normandie Nuisible",
+    "logo": "/images/partenaires/Normandie-nuisible.jpeg",
+    "href": "https://normandienuisibles.fr"
+  },
+  {
+    "name": "Boulangerie Lelièvre",
+    "logo": "/images/partenaires/Lelievre.png",
+    "href": "https://patisserie-lelievre.fr"
   }
 ]
