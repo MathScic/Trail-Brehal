@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 type Course = {
-  km: number;
+  km: string | number;
   name: string;
   desc: string;
   img: string;
@@ -46,7 +46,8 @@ export default function CourseCard({
               size === "sm" ? "text-lg" : "text-xl md:text-2xl"
             } line-clamp-1`}
           >
-            {course.km} km – {course.name}
+            {typeof course.km === "number" ? `${course.km} km` : course.km} –{" "}
+            {course.name}
           </h3>
           <p className="text-gray-600 mt-2 text-center text-sm line-clamp-2">
             {course.desc}
