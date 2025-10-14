@@ -126,7 +126,7 @@ export default function Header() {
           {/* Liens droite */}
           <div className="flex gap-40">
             <Link
-              href="https://www.normandiecourseapied.com/fiches-course-foulees-cross-trail-normandie-2025/manche/run-des-vikings-brehal-2025.html"
+              href="https://run-vikings.123go.fr/fr"
               className={navLinkStyle}
             >
               Inscriptions
@@ -211,7 +211,7 @@ export default function Header() {
               Infos
             </Link>
             <Link
-              href="https://www.normandiecourseapied.com/fiches-course-foulees-cross-trail-normandie-2025/manche/run-des-vikings-brehal-2025.html"
+              href="https://run-vikings.123go.fr/fr"
               onClick={() => setMenuOpen(false)}
               className="block font-semibold"
             >
