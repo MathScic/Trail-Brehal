@@ -46,9 +46,13 @@ export default function CourseCard({
               size === "sm" ? "text-lg" : "text-xl md:text-2xl"
             } line-clamp-1`}
           >
-            {typeof course.km === "number" ? `${course.km} km` : course.km} –{" "}
-            {course.name}
+            {(() => {
+              const kmValue = String(course.km).trim().toLowerCase(); // normalisation
+              const showKm = !kmValue.includes("m"); // si "m" → ne pas rajouter km
+              return `${course.km}${showKm ? " km" : ""} – ${course.name}`;
+            })()}
           </h3>
+
           <p className="text-gray-600 mt-2 text-center text-sm line-clamp-2">
             {course.desc}
           </p>
@@ -58,7 +62,11 @@ export default function CourseCard({
           href={course.signupUrl}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label={`S’inscrire à la course ${course.km} km – ${course.name}`}
+          aria-label={`S’inscrire à la course ${(() => {
+            const kmValue = String(course.km).trim().toLowerCase();
+            const showKm = !kmValue.includes("m");
+            return `${course.km}${showKm ? " km" : ""}`;
+          })()} – ${course.name}`}
           className="mt-4 inline-flex items-center justify-center rounded-lg bg-blue-700 px-5 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-800 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
         >
           S’inscrire

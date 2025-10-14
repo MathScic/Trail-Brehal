@@ -5,7 +5,7 @@
     "name": "Conquête des dunes",
     "desc": "Ouverte à tous. Départ 10h, Place Monaco 50290 Bréhal. Arrivée au même endroit que le départ.. Inscription 10€ / pers.",
     "img": "/images/courses-5km.jpeg",
-    "signupUrl": "https://www.normandiecourseapied.com/fiches-course-foulees-cross-trail-normandie-2025/manche/run-des-vikings-brehal-2025.html"
+    "signupUrl": "https://run-vikings.123go.fr/fr"
   },
 
   {
@@ -14,7 +14,7 @@
     "name": "La traversée des Vikings",
     "desc": "Ouverte à tous. Départ 11h15, Place Monaco 50290 Bréhal. Arrivée au même endroit que le départ.. Inscription 12€ / pers.",
     "img": "/images/courses-10km.jpg",
-    "signupUrl": "https://www.normandiecourseapied.com/fiches-course-foulees-cross-trail-normandie-2025/manche/run-des-vikings-brehal-2025.html"
+    "signupUrl": "https://run-vikings.123go.fr/fr"
   },
 
   {
@@ -23,7 +23,7 @@
     "name": "Challenge Entreprise/Equipes - La traversée des Vikings",
     "desc": "Ouverte à tous. Départ 11h15, Place Monaco 50290 Bréhal. Arrivée au même endroit que le départ.. Inscription 80€ / équipe de 4 pers",
     "img": "/images/banner-4.jpg",
-    "signupUrl": "https://www.normandiecourseapied.com/fiches-course-foulees-cross-trail-normandie-2025/manche/run-des-vikings-brehal-2025.html"
+    "signupUrl": "https://run-vikings.123go.fr/fr"
   },
 
   {
@@ -32,15 +32,15 @@
     "name": "La rando des Vikings",
     "desc": "Ouverte à tous. Départ 10h30, Place Monaco 50290 Bréhal. Arrivée au même endroit que le départ.. Inscription 5€ / pers.",
     "img": "/images/courses-marche.jpg",
-    "signupUrl": "https://www.normandiecourseapied.com/fiches-course-foulees-cross-trail-normandie-2025/manche/run-des-vikings-brehal-2025.html"
+    "signupUrl": "https://run-vikings.123go.fr/fr"
   },
   {
     "slug": "Course enfants - 2017/2018",
-    "km": "580 m",
+    "km": "0.580",
     "name": "Le mini-drakar",
     "desc": "Départ 14h, Place Monaco 50290 Bréhal. Arrivée au même endroit que le départ. Inscription 3€ / pers.",
     "img": "/images/courses-enfants-1.jpeg",
-    "signupUrl": "https://www.normandiecourseapied.com/fiches-course-foulees-cross-trail-normandie-2025/manche/run-des-vikings-brehal-2025.html"
+    "signupUrl": "https://run-vikings.123go.fr/fr"
   },
 
   {
@@ -49,7 +49,7 @@
     "name": "Les petits Vikings",
     "desc": "Départ 14h30, Place Monaco 50290 Bréhal. Arrivée au même endroit que le départ.. Inscription 3€ / pers.",
     "img": "/images/courses-enfants-2.jpeg",
-    "signupUrl": "https://www.normandiecourseapied.com/fiches-course-foulees-cross-trail-normandie-2025/manche/run-des-vikings-brehal-2025.html"
+    "signupUrl": "https://run-vikings.123go.fr/fr"
   },
 
   {
@@ -58,7 +58,7 @@
     "name": "Les apprentis guerriers",
     "desc": "Départ 15h15, Place Monaco 50290 Bréhal. Arrivée au même endroit que le départ.. Inscription 3€ / pers.",
     "img": "/images/courses-enfants-3.jpeg",
-    "signupUrl": "https://www.normandiecourseapied.com/fiches-course-foulees-cross-trail-normandie-2025/manche/run-des-vikings-brehal-2025.html"
+    "signupUrl": "https://run-vikings.123go.fr/fr"
   },
 
   {
@@ -67,6 +67,6 @@
     "name": "Raid des vikings",
     "desc": "Départ 16h15, Place Monaco 50290 Bréhal. Arrivée au même endroit que le départ.. Inscription 3€ / pers.",
     "img": "/images/Apprendit-guerriers.jpg",
-    "signupUrl": "https://www.normandiecourseapied.com/fiches-course-foulees-cross-trail-normandie-2025/manche/run-des-vikings-brehal-2025.html"
+    "signupUrl": "https://run-vikings.123go.fr/fr"
   }
 ]
