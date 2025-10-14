@@ -21,7 +21,7 @@ export default function SocksHighlight() {
   return (
     <FadeInWhenVisible>
       {/* Bandeau pleine largeur */}
-      <section className="w-full bg-gray-100 py-10 px-4">
+      <section className="w-full bg-gray-100 py-18 pb-20 px-4 ">
         <div className="flex flex-col md:flex-row items-center max-w-6xl mx-auto">
           {/* Bloc image avec flèches */}
           <div className="relative md:w-1/2 w-full h-80 md:h-96">
