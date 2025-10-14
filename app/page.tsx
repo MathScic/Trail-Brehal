@@ -5,6 +5,7 @@ import Hero from "@/components/Hero";
 import MerEtBocage from "@/components/MerEtBocage";
 import Partners from "@/components/Partners";
 import SeoJsonLd from "@/components/SeoJsonLd";
+import ChaussettesSection from "@/components/ChaussettesSection";
 
 const SITE = "https://trail-des-vikings.fr";
 
@@ -42,6 +43,9 @@ export default function Home() {
 
       {/* SECTION : Courses */}
       <Courses />
+
+      {/* SECTION : Vente chaussettes frères chaussettes */}
+      <ChaussettesSection />
 
       {/* SECTION : Partenaires */}
       <Partners />

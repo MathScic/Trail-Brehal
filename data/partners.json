@@ -49,5 +49,10 @@
     "name": "Boulangerie Lelièvre",
     "logo": "/images/partenaires/Lelievre.png",
     "href": "https://www.instagram.com/patisserielelievre.brehal"
+  },
+  {
+    "name": "LMDI Informatique",
+    "logo": "/images/LMDI.png",
+    "href": "https://lamaisondelinformatique.com"
   }
 ]
