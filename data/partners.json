@@ -64,5 +64,10 @@
     "name": "La conciergerie",
     "logo": "/images/conciergerie.png",
     "href": "https://conciergerie-stmb.com/ "
+  },
+  {
+    "name": "Renault",
+    "logo": "/images/partenaires/Renault.png",
+    "href": "https://www.renault-brehal.fr/ "
   }
 ]
