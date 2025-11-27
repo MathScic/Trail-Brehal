@@ -4,6 +4,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import RestoCard from "@/components/RestoCard";
 
 function AccordionSection({
   id,
@@ -174,7 +175,13 @@ export default function InfosPratiquesPage() {
 
           {/* Restauration */}
           <AccordionSection id="restauration" title="Restauration">
-            <p>A venir</p>
+            <RestoCard
+              name="La Cocotte à Roulettes"
+              logo="images/resto/cocote logo.jpg" // Mets ton image ici
+              description="Plats cuisinés, soupes, salades, snacking élaboré et pâtisseries à emporter."
+              locations="Carolles · Saint-Pair-sur-Mer · Yquelon · Granville"
+              link="https://www.facebook.com/people/La-cocotte-à-roulettes/61574066994012/"
+            />
           </AccordionSection>
 
           {/* Inscriptions */}
