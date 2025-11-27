@@ -69,5 +69,10 @@
     "name": "Renault",
     "logo": "/images/partenaires/Renault.png",
     "href": "https://www.renault-brehal.fr/ "
+  },
+  {
+    "name": "Navette des îles, Chausey",
+    "logo": "/images/partenaires/navette-des-iles.jpg",
+    "href": "https://www.vedettesjoliefrance.com "
   }
 ]
