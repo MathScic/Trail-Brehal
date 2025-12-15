@@ -14,7 +14,9 @@
     "name": "La traversée des Vikings",
     "desc": "Ouverte à tous. Départ 11h15, Place Monaco 50290 Bréhal. Arrivée au même endroit que le départ.. Inscription 12€ / pers.",
     "img": "/images/courses-10km.jpg",
-    "signupUrl": "https://run-vikings.123go.fr/fr"
+    "signupUrl": "https://run-vikings.123go.fr/fr",
+    "videoSrc": "/videos/10km.mp4",
+    "poster": "/courses/10km-poster.jpg"
   },
 
   {

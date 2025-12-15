@@ -5,6 +5,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import RestoCard from "@/components/RestoCard";
+import RoadMap from "@/components/RoadMap";
 
 function AccordionSection({
   id,
@@ -165,6 +166,14 @@ export default function InfosPratiquesPage() {
             </div>
           </AccordionSection>
 
+          {/* RoadMap */}
+          <AccordionSection id="roadmap" title="RoadMap (vidéos des parcours)">
+            <p className="mb-4">
+              Cliquez sur une course pour voir la Road Map.
+            </p>
+            <RoadMap />
+          </AccordionSection>
+
           {/* Parking */}
           <AccordionSection id="parking" title="Parking">
             <p>
@@ -177,7 +186,8 @@ export default function InfosPratiquesPage() {
           <AccordionSection id="restauration" title="Restauration">
             <RestoCard
               name="La Cocotte à Roulettes"
-              logo="images/resto/cocote logo.jpg" // Mets ton image ici
+              logo="/images/resto/cocote-logo.jpg"
+              // Mets ton image ici
               description="Plats cuisinés, soupes, salades, snacking élaboré et pâtisseries à emporter."
               locations="Carolles · Saint-Pair-sur-Mer · Yquelon · Granville"
               link="https://www.facebook.com/people/La-cocotte-à-roulettes/61574066994012/"

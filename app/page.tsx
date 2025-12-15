@@ -6,6 +6,7 @@ import MerEtBocage from "@/components/MerEtBocage";
 import Partners from "@/components/Partners";
 import SeoJsonLd from "@/components/SeoJsonLd";
 import ChaussettesSection from "@/components/ChaussettesSection";
+import RunVideo from "@/components/ModalRunVideo";
 
 const SITE = "https://trail-des-vikings.fr";
 
