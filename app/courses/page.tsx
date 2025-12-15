@@ -119,7 +119,6 @@ export default function AllCoursesPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbsLd) }}
       />
-      <RunVideo />
     </main>
   );
 }
