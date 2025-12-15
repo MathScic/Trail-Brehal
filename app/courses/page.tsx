@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import coursesData from "@/data/courses.json";
-import RunVideo from "@/components/ModalRunVideo";
 
 const SITE = "https://trail-des-vikings.fr";
 
