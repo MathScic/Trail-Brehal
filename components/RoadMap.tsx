@@ -22,14 +22,14 @@ const items: Item[] = [
     videoSrc: "/videos/10km.mp4",
     poster: "/images/poster/10km.png",
   },
-  // {
-  //   kmLabel: "5 km",
-  //   title: "Parcours 5 km",
-  //   desc: "Accessible et rapide. Idéal pour se challenger.",
-  //   meta: "Départ 10h00 • 5,1 km",
-  //   videoSrc: "/videos/5km.mp4",
-  //   poster: "/images/posters/5km.jpg",
-  // },
+  {
+    kmLabel: "5 km",
+    title: "Parcours 5 km",
+    desc: "Accessible et rapide. Idéal pour se challenger.",
+    meta: "Départ 10h00 • 5,1 km",
+    videoSrc: "/videos/5km.mp4",
+    poster: "/images/poster/5km.png",
+  },
   // {
   //   kmLabel: "Marche",
   //   title: "Parcours marche",
