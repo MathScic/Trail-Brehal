@@ -6,6 +6,7 @@
     "desc": "Ouverte à tous. Départ 10h, Place Monaco 50290 Bréhal. Arrivée au même endroit que le départ.. Inscription 10€ / pers.",
     "img": "/images/courses-5km.jpeg",
     "videoSrc": "/videos/5km.mp4",
+    "poster": "/courses/10km-poster.png",
     "signupUrl": "https://run-vikings.123go.fr/fr"
   },
 
@@ -17,7 +18,7 @@
     "img": "/images/courses-10km.jpg",
     "signupUrl": "https://run-vikings.123go.fr/fr",
     "videoSrc": "/videos/10km.mp4",
-    "poster": "/courses/10km-poster.jpg"
+    "poster": "/courses/10km-poster.png"
   },
 
   {

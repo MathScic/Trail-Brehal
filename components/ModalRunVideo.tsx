@@ -79,6 +79,7 @@ export default function ModalRunVideo({
           muted
           playsInline
           preload="metadata"
+          onError={() => console.error("VIDEO ERROR:", src)}
           className="w-full h-full object-contain bg-black rounded-xl"
         />
 
